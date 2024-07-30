@@ -3,36 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
+    <title>Blog Website</title>
+    <link rel="stylesheet" href="style.css">
+</head> 
 <body>
-    <!-- navigation bar -->
-    <nav class="navbar">
-        <div class="logo">MyBlogs</div>
-       
-        <ul class="nav-links">
-            <li><a href="#">Blogs</a></li>
-            <li><a href="#">Contacts</a></li>
-            <li><a href="#">About</a></li>
-        </ul>
-    </nav>
-    
+    <div id="main">
+        <nav class="navbar">
+           <!-- adding navigation bar dynamically -->
+        </nav>
+        <div class="Products">
+             <!-- adding products dynamically -->
+        </div>
+        <div class="pagination">
+            <button class="pagination__btnPrev" disabled onclick="paginationInstance.handleBack()">Prev</button>
+            <div class="pagination__pageBtn"></div>
+            <button class="pagination__btnNext" onclick="paginationInstance.handleNext()">Next</button>
 
-    <!-- content container where posts will be shown  -->
-    <div class="content-container">
-         <!-- dynamic data of posts will load here  -->
+            <div class="offsetMain">
+                <label for="offset">Page Size</label>
+                <select name="offset" id="offset" >
+                    <option value="10" selected>10</option>
+                    <option value="20">20</option>
+                    <option value="50">50</option>
+                    <option value="100">100</option>
+                </select>
+            </div>
+
+        </div>
     </div>
-
-    <!-- pagination container  -->
-    <span class="pagination-box">
-       <button class="prev">Prev</button>
-       <span class="paginated-btn-grp">
-           
-       </span>
-       <button class="next">Next</button>
-    </span>
     
-    <script src="script.js" ></script> 
+    <script src="BaseApiService.js"></script>
+    <script src="ApiService.js"></script>
+    
+    <script src="NavigationBar.js"></script>
+ 
+    <script src="script.js"></script>
+    <script src="CacheData.js"></script>
+    <script src="Pagination.js"></script>
+    
+    
 </body>
-</html> 
+</html>
