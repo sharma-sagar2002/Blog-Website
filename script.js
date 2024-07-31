@@ -13,62 +13,62 @@ const loadInitialPosts = () => {
 document.addEventListener("DOMContentLoaded", ()=>{
   loadInitialPosts();
   naviagtionObject.createNavigationBar();
+  offsetInstance.createOffset([10,20,50,100]);
 });
-
-
 
 document.querySelector(".Products").addEventListener("scroll", (event) => {
   let { clientHeight, scrollHeight, scrollTop } = event.target;
 
   paginationInstance.checkCurrentPage(clientHeight, scrollHeight, scrollTop);
 
-  if (
-    clientHeight + scrollTop + 1 >= scrollHeight &&
-    currentPage < totalPages
-  ) {
+  if (clientHeight + scrollTop + 1 >= scrollHeight && currentPage < totalPages) {
     currentPage += 1;
     paginationInstance.updateButtonStates();
     paginationInstance.getPosts(currentPage, limit);
   }
 });
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // handleNext to updatePageStyle 
 
 
-document.getElementById("offset").addEventListener("click", (event) => {
-  const newTotalPages = event.target.value;
+// document.querySelector("#offset").addEventListener("click", (event) => {
+//   const newTotalPages = event.target.value;
 
-  if (newTotalPages === limit) {
-    console.log("already same page limit");
-  } else {
-    limit = newTotalPages;
-    currentPage = 1;
-    paginationInstance.updateButtonStates();
-    paginationInstance.getPosts(currentPage, limit, true, true);
-  }
-});
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+//   if (newTotalPages === limit) {
+//     console.log("already same page limit");
+//   } else {
+//     limit = newTotalPages;
+//     currentPage = 1;
+//     paginationInstance.updateButtonStates();
+//     paginationInstance.getPosts(currentPage, limit, true, true);
+//   }
+// });
 
 
 

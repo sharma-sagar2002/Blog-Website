@@ -340,22 +340,26 @@
             }
             
             .pages {
-                width: 30px;
-                height: 30px;
-                display: flex;
-                padding: 3px 3px 4px 4px;
+                width: 50px;
                 justify-content: center;
                 align-items: center;
                 color: gray;
-                background-color: #333;
-                border-radius: 5px;
+                border-radius: 100%;
                 cursor: pointer;
+                height: 25px;
+                display: flex;
+                padding: 4px 6px 6px 7px;
             }
             
-            .pages.active, .offsetMain {
+            .pages.active {
                 background-color: #333;
                 color: #fff;
-                border-radius: 5px;
+                border-radius: 100%;
+            }
+            .offsetMain{
+                background-color: #333;
+                color: #fff;
+                border-radius : 10px;
             }
             
             .offsetMain {

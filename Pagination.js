@@ -9,12 +9,50 @@ class Pagination {
   }
 
 
-  getPosts = async (page, limit, prev = false, offsetChange = false) => {
+  getCurrentPage() {
+    return this.currentPage;
+  }
+
+  setCurrentPage(page) {
+    this.currentPage = page;
+  }
+
+  getPreviousPage() {
+    return this.previousPage;
+  }
+
+  setPreviousPage(page) {
+    this.previousPage = page;
+  }
+
+
+  getTotalPages() {
+    return this.totalPages;
+  }
+
+  setTotalPages(pages) {
+    this.totalPages = pages;
+  }
+
+
+  incrementCurrentPage() {
+    if (this.currentPage < this.totalPages) {
+      this.currentPage++;
+    }
+  }
+
+  decrementCurrentPage() {
+    if (this.currentPage > 1) {
+      this.currentPage--;
+    }
+  }
+
+  getPosts = async (page, limit, prev = false, offsetChange = false,previousPage=null) => {
   
-    const data = await apiServiceInstance.getPosts(page, limit, prev);
+    const data = await apiServiceInstance.getPosts(page, limit, prev,previousPage);
 
     if (this.totalPosts !== data.total || offsetChange) {
-      this.totalPosts = data.total;
+      this.totalPosts = data.total; 
       totalPages = Math.ceil(this.totalPosts / limit);
 
       let paginationDiv = document.querySelector(".pagination__pageBtn");
@@ -65,7 +103,7 @@ class Pagination {
 
       productDiv.appendChild(newDiv);
     });
-
+    this.updateScroll();
     this.updatePageStyles();
   
   }
@@ -90,13 +128,12 @@ class Pagination {
     }
   };
   
-  // const handleSpecificButton= (currentPage)=>{
-  //     updateButtonStates();
-  //     paginationInstance.getProducts(currentPage, totalLimit, true);
-  // }
   
    updateButtonStates = (previous = false) => {
+    const btnPrev = document.querySelector(".pagination__btnPrev");
+    const btnNext = document.querySelector(".pagination__btnNext");
     let page = previous ? PreviousPage : currentPage;
+    
     document.querySelector(".pagination__btnPrev").disabled = page === 1;
     document.querySelector(".pagination__btnNext").disabled = page === totalPages;
     if (previous) {
@@ -112,6 +149,7 @@ class Pagination {
     document.querySelectorAll(".pages").forEach((page, index) => {
       if (index + 1 === pageNo) {
         page.classList.add("active");
+      
       } else {
         page.classList.remove("active");
       }

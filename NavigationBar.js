@@ -1,8 +1,8 @@
 class NavigationBar {
-    constructor(){};
+constructor(){};
 
 createNavigationBar(){
-
+let listItems=[];
 // creating navigation bar 
 let logo = document.createElement("div");
 logo.setAttribute("class", "navbar__logo");
@@ -24,6 +24,7 @@ let aboutLi = document.createElement("li");
 aboutLi.innerHTML = `<a href="#">About</a>`;
 
 // Append li elements to navLinks ul element
+
 navLinks.appendChild(blogLi);
 navLinks.appendChild(contactsLi);
 navLinks.appendChild(aboutLi);
@@ -32,6 +33,7 @@ let navBar = document.querySelector(".navbar");
 navBar.appendChild(logo);
 navBar.appendChild(navLinks);
 }
+
 
 }
 
