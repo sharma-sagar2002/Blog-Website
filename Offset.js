@@ -2,15 +2,6 @@ class Offset {
    
     constructor() {}
 
-    //  <label for="offset">Page Size</label>
-    // <select name="offset" id="offset" >
-    //         <option value="10" selected>10</option>
-    //         <option value="20">20</option>
-    //         <option value="50">50</option>
-    //         <option value="100">100</option>
-    // </select> 
-
-
     createOffset(nums,index){
        let offsetMain =document.querySelector(".offsetMain");
        let select =document.createElement("select");
