@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Website</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="Offset.js" defer></script>
+</head> 
+<body>
+    <div id="main">
+        <nav class="navbar">
+           <!-- adding navigation bar dynamically -->
+        </nav>
+
+        <div class="Products">
+           <!-- adding products dynamically -->
+        </div>
+
+        <div class="pagination">
+            <button class="pagination__btnPrev" disabled onclick="paginationInstance.handleBack()">Prev</button>
+            <div class="pagination__pageBtn"></div>
+            <button class="pagination__btnNext" onclick="paginationInstance.handleNext()">Next</button>
+
+        <div class="offsetMain">
+          <!-- offset created dynamically using js  -->
+        </div>
+
+      </div>
+    </div>
+    
+    <script src="BaseApiService.js"></script>
+    <script src="ApiService.js"></script>
+    <script src="NavigationBar.js"></script>
+    <script src="script.js"></script>
+    <script src="CacheData.js"></script>
+    <script src="Pagination.js"></script>
+    
+    
+    
+</body>
+</html>
